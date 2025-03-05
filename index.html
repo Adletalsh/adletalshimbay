@@ -9,8 +9,19 @@
         body {
             margin: 0;
             font-family: 'Roboto', sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* Default Dark Mode */
+        body.dark-mode {
             background-color: #1e1e2f;
             color: #f0f0f0;
+        }
+
+        /* Light Mode */
+        body.light-mode {
+            background-color: #f5f5f5;
+            color: #333;
         }
 
         /* Header Section */
@@ -19,18 +30,25 @@
             padding: 50px 20px;
             background-color: #282a36;
             border-bottom: 3px solid #6272a4;
+            transition: background-color 0.3s;
+        }
+
+        header.dark-mode {
+            background-color: #282a36;
+        }
+
+        header.light-mode {
+            background-color: #eaeaea;
         }
 
         header h1 {
             font-size: 3rem;
             margin: 0;
-            color: #ff79c6;
         }
 
         header p {
             font-size: 1.2rem;
             margin: 10px 0 0;
-            color: #8be9fd;
         }
 
         /* Navigation Bar */
@@ -41,14 +59,8 @@
 
         nav a {
             text-decoration: none;
-            color: #50fa7b;
             margin: 0 15px;
             font-size: 1.1rem;
-        }
-
-        nav a:hover {
-            color: #ffb86c;
-            text-decoration: underline;
         }
 
         /* Section Styles */
@@ -56,37 +68,18 @@
             max-width: 900px;
             margin: 30px auto;
             padding: 30px;
-            background-color: #2b2c40;
             border-radius: 10px;
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+
+        section.dark-mode {
+            background-color: #2b2c40;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
         }
 
-        section h2 {
-            font-size: 2rem;
-            color: #bd93f9;
-            margin-bottom: 10px;
-        }
-
-        section p {
-            line-height: 1.6;
-        }
-
-        ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        ul li {
-            margin: 5px 0;
-        }
-
-        ul li a {
-            color: #8be9fd;
-            text-decoration: none;
-        }
-
-        ul li a:hover {
-            text-decoration: underline;
+        section.light-mode {
+            background-color: #ffffff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
 
         /* Footer */
@@ -96,12 +89,57 @@
             background-color: #282a36;
             color: #6272a4;
             font-size: 0.9rem;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        footer.dark-mode {
+            background-color: #282a36;
+            color: #6272a4;
+        }
+
+        footer.light-mode {
+            background-color: #eaeaea;
+            color: #555;
+        }
+
+        /* Button Styles */
+        .toggle-buttons {
+            text-align: center;
+            margin: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .light-mode-btn {
+            background-color: #50fa7b;
+            color: #fff;
+        }
+
+        .dark-mode-btn {
+            background-color: #ff5555;
+            color: #fff;
+        }
+
+        .language-btn {
+            background-color: #8be9fd;
+            color: #333;
+        }
+
+        button:hover {
+            opacity: 0.9;
         }
     </style>
 </head>
-<body>
+<body class="dark-mode">
 
-<header>
+<header class="dark-mode">
     <h1>Adlet's Portfolio</h1>
     <p>Student of BIL | Future Pilot</p>
 </header>
@@ -112,23 +150,29 @@
     <a href="#contact">Contact</a>
 </nav>
 
-<section id="about">
+<div class="toggle-buttons">
+    <button class="light-mode-btn" onclick="toggleLightMode()">Toggle Light/Dark Mode</button>
+    <button class="language-btn" onclick="changeLanguage('en')">English</button>
+    <button class="language-btn" onclick="changeLanguage('kz')">Kazakh</button>
+</div>
+
+<section id="about" class="dark-mode">
     <h2>About Me</h2>
-    <p>
+    <p id="about-content">
         Hello! My name is Adlet, and I am currently a student at BIL. I have a strong passion for aviation and dream of becoming a pilot. 
         Outside of school, I enjoy playing basketball, which helps me stay active and focused. 
         I am also proud to have won the Republican Olympiad in Geography in Kazakhstan 🏆🥇.
     </p>
 </section>
 
-<section id="projects">
+<section id="projects" class="dark-mode">
     <h2>Projects</h2>
-    <p>
+    <p id="projects-content">
         At the moment, I am focused on excelling in my studies, but I look forward to taking on exciting personal projects in the future. Stay tuned for updates!
     </p>
 </section>
 
-<section id="contact">
+<section id="contact" class="dark-mode">
     <h2>Contact</h2>
     <p>Feel free to reach out to me:</p>
     <ul>
@@ -137,9 +181,47 @@
     </ul>
 </section>
 
-<footer>
+<footer class="dark-mode">
     <p>&copy; 2025 Adlet's Portfolio. Designed with care.</p>
 </footer>
+
+<script>
+    // Function to toggle light and dark mode
+    function toggleLightMode() {
+        const body = document.body;
+        const header = document.querySelector("header");
+        const sections = document.querySelectorAll("section");
+        const footer = document.querySelector("footer");
+
+        body.classList.toggle("light-mode");
+        body.classList.toggle("dark-mode");
+
+        header.classList.toggle("light-mode");
+        header.classList.toggle("dark-mode");
+
+        footer.classList.toggle("light-mode");
+        footer.classList.toggle("dark-mode");
+
+        sections.forEach(section => {
+            section.classList.toggle("light-mode");
+            section.classList.toggle("dark-mode");
+        });
+    }
+
+    // Function to change language
+    function changeLanguage(lang) {
+        const aboutContent = document.getElementById("about-content");
+        const projectsContent = document.getElementById("projects-content");
+
+        if (lang === "en") {
+            aboutContent.innerText = "Hello! My name is Adlet, and I am currently a student at BIL. I have a strong passion for aviation and dream of becoming a pilot. Outside of school, I enjoy playing basketball, which helps me stay active and focused. I am also proud to have won the Republican Olympiad in Geography in Kazakhstan 🏆🥇.";
+            projectsContent.innerText = "At the moment, I am focused on excelling in my studies, but I look forward to taking on exciting personal projects in the future. Stay tuned for updates!";
+        } else if (lang === "kz") {
+            aboutContent.innerText = "Сәлем! Менің атым Адлет, мен қазір БИЛ мектебінің оқушысымын. Мен авиацияға қатты қызығамын және ұшқыш болуды армандаймын. Мектептен тыс уақытта баскетбол ойнап, белсенді әрі сергек болуға тырысамын. Сондай-ақ, Қазақстандағы География бойынша Республикалық олимпиадада жеңіске жеткенімді мақтан тұтамын 🏆🥇.";
+            projectsContent.innerText = "Қазіргі уақытта мен оқуыма бар күшімді салудамын, бірақ болашақта қызықты жеке жобалармен айналысуды асыға күтемін. Жаңалықтарды күтіңіз!";
+        }
+    }
+</script>
 
 </body>
 </html>
