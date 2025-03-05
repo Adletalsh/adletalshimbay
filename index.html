@@ -5,52 +5,105 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Adlet's Portfolio</title>
     <style>
+        /* General Styles */
         body {
-            font-family: Arial, sans-serif;
             margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
+            font-family: 'Roboto', sans-serif;
+            background-color: #1e1e2f;
+            color: #f0f0f0;
         }
+
+        /* Header Section */
         header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 20px;
             text-align: center;
+            padding: 50px 20px;
+            background-color: #282a36;
+            border-bottom: 3px solid #6272a4;
         }
+
+        header h1 {
+            font-size: 3rem;
+            margin: 0;
+            color: #ff79c6;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            margin: 10px 0 0;
+            color: #8be9fd;
+        }
+
+        /* Navigation Bar */
         nav {
             text-align: center;
             margin: 20px 0;
         }
+
         nav a {
-            margin: 0 15px;
             text-decoration: none;
-            color: #4CAF50;
+            color: #50fa7b;
+            margin: 0 15px;
+            font-size: 1.1rem;
         }
+
         nav a:hover {
+            color: #ffb86c;
             text-decoration: underline;
         }
+
+        /* Section Styles */
         section {
-            max-width: 800px;
-            margin: 20px auto;
-            padding: 20px;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 30px;
+            background-color: #2b2c40;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
         }
+
+        section h2 {
+            font-size: 2rem;
+            color: #bd93f9;
+            margin-bottom: 10px;
+        }
+
+        section p {
+            line-height: 1.6;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        ul li {
+            margin: 5px 0;
+        }
+
+        ul li a {
+            color: #8be9fd;
+            text-decoration: none;
+        }
+
+        ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
         footer {
             text-align: center;
-            margin-top: 20px;
-            padding: 10px;
-            background-color: #4CAF50;
-            color: white;
+            padding: 20px;
+            background-color: #282a36;
+            color: #6272a4;
+            font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
 
 <header>
-    <h1>Welcome to Adlet's Portfolio</h1>
-    <p>A student of BIL aspiring to achieve great things!</p>
+    <h1>Adlet's Portfolio</h1>
+    <p>Student of BIL | Future Pilot</p>
 </header>
 
 <nav>
@@ -61,25 +114,29 @@
 
 <section id="about">
     <h2>About Me</h2>
-    <p>Hi! My name is Adlet, and I am a student at BIL. I am passionate about learning and exploring new opportunities. My dream is to become a pilot, and I am working hard to achieve this goal.</p>
+    <p>
+        Hello! My name is Adlet, and I am currently a student at BIL. I have a strong passion for aviation and dream of becoming a pilot. I am constantly learning and working hard to achieve my goals while exploring new skills.
+    </p>
 </section>
 
 <section id="projects">
     <h2>Projects</h2>
-    <p>Currently, I am focusing on my studies, but I am eager to start working on personal projects soon. Stay tuned!</p>
+    <p>
+        At the moment, I am focused on excelling in my studies, but I look forward to taking on exciting personal projects in the future. Stay tuned for updates!
+    </p>
 </section>
 
 <section id="contact">
     <h2>Contact</h2>
     <p>Feel free to reach out to me:</p>
     <ul>
-        <li>Email: adlet@example.com</li>
-        <li>Phone: +7 123 456 7890</li>
+        <li>Email: <a href="mailto:adlet@example.com">adlet@example.com</a></li>
+        <li>Phone: <a href="tel:+77022473969">+77022473969</a></li>
     </ul>
 </section>
 
 <footer>
-    <p>&copy; 2025 Adlet's Portfolio. All rights reserved.</p>
+    <p>&copy; 2025 Adlet's Portfolio. Designed with care.</p>
 </footer>
 
 </body>
